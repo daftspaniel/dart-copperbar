@@ -9,12 +9,15 @@ class copperBar {
 
   copperBar(this.y, this.shade) {
     List barcolor2 = new List();
-    for (int i = 1; i < 64; i++)
+    for (int i = 1; i < 64; i++) {
       barcolor2.add([i * 4, i * 4, i * 4]);
-    for (int i = 1; i < 64; i++)
+    }
+    for (int i = 1; i < 64; i++) {
       barcolor2.add([255 - i * 4, 255 - i * 4, 255 - i * 4]);
+    }
 
-    barcolor2.forEach((col) => barcolor.add([shade[0] * col[0], shade[1] * col[1], shade[2] * col[2]]) );
+    barcolor2.forEach((col) => barcolor
+        .add([shade[0] * col[0], shade[1] * col[1], shade[2] * col[2]]));
   }
 
   draw(CanvasRenderingContext2D c2d) {
@@ -58,17 +61,18 @@ update() {
   cbRed.draw(c2d);
 
   String text = "Dart is AWESOME!";
-  bannerX = bannerX + bannerSpeed*bannerDirection;
+  bannerX = bannerX + bannerSpeed * bannerDirection;
   int x = bannerX;
-  if (x<-50 || x>635) bannerDirection*=-1;
-  int y=220;
-  c2d..font = "50px Sans-serif"
-     ..strokeStyle = 'black'
-     ..lineWidth = 8
-     ..miterLimit=2
-     ..strokeText(text, x, y)
-     ..fillStyle = 'yellow'
-     ..fillText(text, x, y);
+  if (x < -50 || x > 635) bannerDirection *= -1;
+  int y = 220;
+  c2d
+    ..font = "50px Sans-serif"
+    ..strokeStyle = 'black'
+    ..lineWidth = 8
+    ..miterLimit = 2
+    ..strokeText(text, x, y)
+    ..fillStyle = 'yellow'
+    ..fillText(text, x, y);
 
   cbBlue.draw(c2d);
 }
